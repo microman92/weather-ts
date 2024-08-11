@@ -1,0 +1,325 @@
+@import 'fonts.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    border: none;
+    outline: none;
+}
+
+@mixin media($size) {
+    @media (max-width: #{$size}px) {
+        @content;
+    }
+}
+
+body {
+    background: #f1f5f9;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @include media(768) {
+        max-width: 100%;
+    }
+}
+
+.logo-span {
+    text-transform: uppercase;
+    color: #4793ff;
+    text-shadow: 0 0 10px #4793ff;
+}
+
+.p-inplace-display {
+    border: 1px solid var(--p-button-secondary-background) !important;
+    background: var(--p-button-secondary-background);
+}
+
+.p-menubar {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: 0 0 10px 2px hsla(0, 0%, 71%, .2);
+}
+
+.p-button.p-button-secondary,
+.p-inplace-display {
+    background: rgba(71, 147, 255, .2) !important;
+    color: #fff !important;
+}
+
+.main__left,
+.main__right,
+.main__week {
+    backdrop-filter: blur(25px);
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, .3);
+}
+
+.custom-color-blue {
+    color: #4793ff;
+}
+
+.custom-color-green {
+    color: greenyellow;
+}
+
+
+.today__left h2 {
+    font-size: 96px;
+}
+
+.today__summary p {
+    color: #fff;
+}
+
+.hour__card_img {
+    width: 64px;
+    height: 64px;
+}
+
+.hour__card {
+    height: 230px;
+
+    @include media(1200) {
+        height: 100%;
+        width: 230px !important;
+    }
+}
+
+.cicle {
+    box-shadow: 0 0 10px 2px hsla(0, 0%, 71%, 0.2);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+
+    & img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.main__week {
+    display: grid;
+    grid-template-columns: repeat(7, 165px);
+    justify-content: center;
+
+    @include media(992) {
+        overflow: scroll;
+        justify-content: start;
+    }
+}
+
+.p-button.p-component.btn {
+    position: absolute;
+    top: -45px;
+    left: 20px;
+}
+
+.today__summary-text {
+    max-width: 140px !important;
+    height: 50px;
+}
+
+.main__left {
+    height: 350px !important;
+
+    @include media(1200) {
+        height: auto !important;
+        padding: 30px 0;
+        gap: 20px;
+    }
+
+    @include media(576) {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+}
+
+.today__right_img {
+    width: 100px;
+    height: 100px;
+
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.highlights {
+    max-width: 380px !important;
+    width: 100%;
+}
+
+.modal__item {
+    background: rgba(71, 147, 255, 0.2);
+}
+
+.modal {
+    overflow: hidden;
+}
+
+.p-drawer-content {
+    scrollbar-width: none;
+}
+
+.hour__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 240px);
+    place-items: center;
+
+    @include media(992) {
+        overflow: scroll;
+        justify-content: flex-start;
+
+    }
+}
+
+@media (max-width: 1200px) {
+    .custom__wrap {
+        flex-wrap: wrap;
+    }
+}
+
+.p-menubar-end {
+    margin-left: 0 !important;
+}
+
+.custom__j-between {
+    justify-content: space-between;
+}
+
+@media (max-width:768px) {
+    .custom__mob-jcenter {
+        justify-content: center !important;
+    }
+
+    .highlights {
+        max-width: 220px !important;
+    }
+
+    .cicle.active {
+        width: 56px;
+    }
+
+    .highlights__left span {
+        font-size: 16px !important;
+    }
+
+    .today {
+        max-width: 460px;
+        width: 100%;
+
+        &__left,
+        &__right {
+            max-width: 230px;
+            width: 100%;
+            align-items: center;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .p-toast.p-component {
+        max-width: 300px !important;
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .p-button span,
+    .p-inplace-display {
+        font-size: 13px !important;
+
+    }
+
+    .menu__end {
+        flex-direction: column !important;
+
+    }
+
+    .p-menubar-end {
+        max-width: 272px !important;
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .menu__end .p-inplace-display {
+        max-width: 272px !important;
+        width: 100% !important;
+        padding: 9px;
+    }
+
+    .favorite-btn {
+        width: 100% !important;
+    }
+
+    .favorite-btn .p-button {
+        width: 100% !important;
+    }
+
+
+    .today__left h2 {
+        font-size: 60px;
+    }
+
+    .today__loc-time {
+        margin-top: 1rem !important;
+    }
+
+    .today__left p {
+        font-size: 18px !important;
+    }
+
+    .today__left p {
+        font-size: 18px !important;
+    }
+
+    .today__summary.mt-6 {
+        margin-top: 1rem !important;
+    }
+
+    .hour__cards {
+        grid-template-columns: repeat(4, 165px);
+    }
+
+    .hour__cards.ml-4 {
+        margin-left: 0 !important;
+    }
+
+    .main__week {
+        grid-template-columns: repeat(7, 135px);
+
+    }
+
+    .today.gap-6 {
+        gap: 0 !important;
+    }
+
+    .today__right_img img {
+        width: 50%;
+    }
+
+    .hour__card {
+        width: 180px !important;
+    }
+
+    .highlights__left span {
+        font-size: 14px !important;
+    }
+
+    .today__summary-text {
+        font-size: 14px !important;
+    }
+}

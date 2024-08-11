@@ -1,0 +1,15 @@
+$Mont: ('Bold', 700),
+('Medium', 500),
+('Regular', 400);
+
+
+
+@each $name,
+$weight in $Mont {
+    @font-face {
+        font-family: 'Montserrat';
+        src: url('@/assets/fonts/Montserrat-#{$name}.woff2');
+        font-style: normal;
+        font-weight: $weight;
+    }
+}

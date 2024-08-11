@@ -1,0 +1,5 @@
+{
+    "entry": ["src/**/*.{js,vue}"],
+    "ignore": ["src/vendor/**/*"],
+    "ignoreExports": ["src/index.js"]
+}
