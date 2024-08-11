@@ -3,7 +3,7 @@
     <main class="main flex flex-column align-items-center gap-4 container mt-8 relative">
         <app-Button class="btn" type="button" :severity="isFavoriteCity ? 'info' : 'secondary'"
             :label="isFavoriteCity ? 'Убрать из избранного' : 'Добавить в избранное'" icon="pi pi-heart"
-            @click="addFavorites(weatherStores.currentCity)" />
+            @click="weatherStores.currentCity ? addFavorites(weatherStores.currentCity) : null" />
 
         <div class="main__left justify-content-around w-full relative border-round-2xl flex custom__wrap">
             <div class="today flex gap-6 align-items-center text-center justify-content-center">
@@ -11,9 +11,11 @@
                 <div class="today__left mt-6 capitalize">
 
                     <h2 class="font-medium custom-color-blue">{{ temp }}°</h2>
-                    <div class="today__loc-time mt-5 flex flex-column align-items-center justify-content-center custom-color-green">
+                    <div
+                        class="today__loc-time mt-5 flex flex-column align-items-center justify-content-center custom-color-green">
                         <p class="text-2xl text-white">{{ currentCity }}</p>
-                        <p class="today__summary-text text-lg line-height-2 mt-2 custom-color-green">Время: {{ getTime }}</p>
+                        <p class="today__summary-text text-lg line-height-2 mt-2 custom-color-green">Время: {{ getTime
+                            }}</p>
                     </div>
 
 
@@ -34,8 +36,7 @@
             </div>
 
 
-            <div class="hour__cards ml-4"
-                v-if="filteredWeather">
+            <div class="hour__cards ml-4" v-if="filteredWeather">
                 <Hour v-for="(hour, i) in props.filteredWeather" :key="i" :hour="hour" />
             </div>
 
@@ -67,7 +68,7 @@ import Highlights from './Highlights.vue';
 import Day from './Day.vue';
 import { weatherName } from '@/icons'
 import type { WeatherData, HourlyWeather, HighlightItem, DailyWeather } from '@/interfaces';
-import { computed, ref, onMounted, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useWeather } from '@/stores'
 import { useToast } from "primevue/usetoast";
 
@@ -82,8 +83,13 @@ const oldDaily = ref<DailyWeather[]>([]);
 
 
 const temp = computed<number>(() => Math.round(weatherStores.currentCity?.current.temp ?? 0))
-const description = computed<string | undefined>(() => weatherStores.currentCity?.current.weather[0].description)
-const weatherIcon = computed<string | undefined>(() => weatherName[description.value] || weatherName['Ясно'])
+const description = computed<string | undefined>(() => {
+    if (weatherStores.currentCity?.current.weather) {
+        return weatherStores.currentCity?.current.weather[0].description
+    }
+    return undefined;
+})
+const weatherIcon = computed<string | undefined>(() => description.value ? weatherName[description.value] : weatherName['Ясно'])
 const currentCity = computed<string | undefined>(() => weatherStores.currentCity?.name)
 
 

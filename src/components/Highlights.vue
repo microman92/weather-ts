@@ -56,13 +56,13 @@ const weatherValue = computed((): string | number => {
         case 'pressure':
             return `${props.value.value}мм ртутного столба`;
         case 'uvi':
-            return props.value.value;
+            return props.value.value ?? 0;
         case 'visibility':
-            return props.value.value;
+            return props.value.value ?? 0;
         case 'wind_speed':
             return `${props.value.value} м/с `;
         default:
-            return props.value.value;
+            return props.value.value ?? 0;
     }
 })
 

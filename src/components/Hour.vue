@@ -41,7 +41,14 @@ const dayDesc = computed((): string => {
 
 const dayWeatherDesc = computed<string | undefined>(() => props.hour?.weather[0].description)
 
-const dayWeatherIcon = computed<string | undefined>(() => weatherName[dayWeatherDesc.value] || weatherName['Ясно'])
+const dayWeatherIcon = computed<string | undefined>(() => {
+    if (dayWeatherDesc.value) {
+        return weatherName[dayWeatherDesc.value]
+    } else {
+        return weatherName['Ясно']
+    }
+
+})
 
 const temp = computed<number>(() => Math.round(props.hour?.temp ?? 0))
 const tempFeels = computed<number>(() => Math.round(props.hour?.temp ?? 0))

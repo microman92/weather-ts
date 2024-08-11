@@ -58,7 +58,7 @@ export interface WeatherData {
 
 export interface HighlightItem {
     key: string;
-    value: number;
+    value?: number;
 }
 
 

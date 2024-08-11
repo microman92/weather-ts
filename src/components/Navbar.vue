@@ -63,10 +63,7 @@ const toast = useToast();
 
 const cityName = ref<string>('')
 const weatherStores = useWeather()
-// const weatherData = ref<WeatherData | null>(null)
 const visibleRight = ref<boolean>(false)
-
-const emit = defineEmits(['weatherInfo'])
 
 const getWeather = async (city: string): Promise<void> => {
     weatherStores.cityExists = false
@@ -86,10 +83,6 @@ const getWeather = async (city: string): Promise<void> => {
             let weatherInfo: WeatherData = { ...response2.data, name: city }
 
             weatherStores.currentCity = weatherInfo
-
-            // weatherData.value = weatherInfo
-            // emit('weatherInfo', weatherStores.currentCity)
-
 
         }
 
@@ -121,7 +114,7 @@ const checkFavorites = () => {
 };
 
 const selectCity = async (city: WeatherData) => {
-    if (city) {
+    if (city && city.name) {
         await getWeather(city.name);
         visibleRight.value = false;
     }

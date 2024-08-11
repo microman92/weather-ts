@@ -1,4 +1,4 @@
-import { ref, computed, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { defineStore } from 'pinia';
 import type { WeatherData } from '../interfaces';
 
@@ -16,7 +16,7 @@ export const useWeather = defineStore('weather', () => {
   };
 
   const addFavoriteCity = (city: WeatherData) => {
-    if (!favoriteCity.value.some(favCity => favCity.name?.toLocaleLowerCase() === city.name.toLocaleLowerCase())) {
+    if (city.name && !favoriteCity.value.some(favCity => favCity.name?.toLocaleLowerCase() === city.name!.toLocaleLowerCase())) {
       favoriteCity.value.push(city);
       localStorage.setItem('favoriteCities', JSON.stringify(favoriteCity.value));
       cityExists.value = true;

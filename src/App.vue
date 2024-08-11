@@ -21,7 +21,7 @@ const filteredWeather = ref<HourlyWeather[] | null>(null)
 const weatherStores = useWeather()
 
 
-const description = computed<string | undefined>(() => weatherStores.currentCity?.current.weather[0].description)
+const description = computed<string | undefined>(() => weatherStores.currentCity?.current.weather ? weatherStores.currentCity?.current.weather[0].description : '')
 
 const weatherVideo = computed<string>(() => {
   return description.value ? weatherName[description.value] || weatherName['ясно'] : weatherName['ясно'];

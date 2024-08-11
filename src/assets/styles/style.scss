@@ -269,9 +269,10 @@ body {
         width: 100% !important;
     }
 
-
     .today__left h2 {
         font-size: 60px;
+        width: max-content;
+        margin: 0 auto;
     }
 
     .today__loc-time {
@@ -290,6 +291,14 @@ body {
         margin-top: 1rem !important;
     }
 
+    .today__loc-time.mt-5 {
+        margin-top: 1rem !important;
+    }
+
+    .today__summary .text-2xl {
+        font-size: 18px !important;
+    }
+
     .hour__cards {
         grid-template-columns: repeat(4, 165px);
     }
@@ -305,6 +314,10 @@ body {
 
     .today.gap-6 {
         gap: 0 !important;
+    }
+
+    .today__right_img {
+        height: 73px;
     }
 
     .today__right_img img {
