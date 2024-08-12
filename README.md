@@ -1,6 +1,6 @@
 # Weather (TypeScript)
 
-<img alt="NPM Version" src="https://img.shields.io/npm/v/npm?color=%2330A339"> <img alt="Static Badge" src="https://img.shields.io/badge/node-v18.17.1-%2330A339">  <img alt="Static Badge" src="https://img.shields.io/badge/vue-3-%2330A339"> <img alt="Static Badge" src="https://img.shields.io/badge/nuxt-3-%2330A339"> <img alt="Static Badge" src="https://img.shields.io/badge/vite-%404.3.5-%2330A339"> <img alt="Static Badge" src="https://img.shields.io/badge/vue-Router-%2330A339"> 
+<img alt="NPM Version" src="https://img.shields.io/npm/v/npm?color=%2330A339"> <img alt="Static Badge" src="https://img.shields.io/badge/node-v18.17.1-%2330A339">  <img alt="Static Badge" src="https://img.shields.io/badge/vue-3-%2330A339"> <img alt="Static Badge" src="https://img.shields.io/badge/vite-%404.3.5-%2330A339"> <img alt="Static Badge" src="https://img.shields.io/badge/vue-Router-%2330A339"> 
 
 Этот проект представляет собой современный погодный веб-сайт, написанный на TypeScript, с использованием библиотек PrimeVue и PrimeFlex. Сайт предоставляет пользователям точные данные о погоде в режиме реального времени для различных городов, позволяя добавлять избранные города и сохранять их для быстрого доступа.
 
